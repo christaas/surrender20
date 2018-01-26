@@ -23,6 +23,8 @@ All data is taken from Riot Games' League of Legends API, found here: https://de
 ## Contributors
 
 Developer: Christa Spieth
+
 Product Owner: Wenze Hu
+
 Quality Assurance: Michael Gao
 
