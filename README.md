@@ -4,20 +4,22 @@ The goal of this project is to provide insight into League of Legends players’
 
 **Vision**
 
-Allow a user to input their summoner's name (gamer tag) to display a current match's players and champion experience levels. By pulling match histories, the user can see the win rates, average KDA (Kills/Deaths/Assists) ratios, and number of games played on the current champion for each player. From these statistics, the web app will give the odds of the user winning the current match (and whether the user should surrender at 20 minutes).
+Allow a user to input a summoner's name (gamer tag) or choose a random Challegner-tier game to display a current match's champion statistics. By looking at aggregated champion statistics, the user can see the win rates, average KDA (Kills/Deaths/Assists) ratios, and the overall power for each current champion. From these statistics, the web app will give the odds of each team winning the current match (and whether a team should surrender at 20 minutes).
 
 **Mission**
 
-Provide insight into players’ experience on current champions and its effects on the likelihood of victory. This will identify where extra aid will be best utilized on user’s team (more help given to less experienced team members based on their champions) and strategize against the enemy team’s strengths and weakness in player experience.
+Provide insight into the current state of League of Legends' champions and its effects on the likelihood of victory. This will identify where extra aid will be best utilized on user’s team (more help given to less experienced team members based on their champions) and strategize against the enemy team’s strengths and weakness in player experience.
 
 **Success Criteria**
 
-A summary of players’ stats on current champions along with a predicted win rate, with an accuracy of 70% (training on past, completed matches).
+A predicted win rate for a current match with an accuracy of 70% (training on past, completed matches), along with a feature to allow the player to spectate that game and see if the result is the same as predicted.
 
 
 ## API Reference
 
-All data is taken from Riot Games' League of Legends API, found here: https://developer.riotgames.com/.
+Data is taken from one of two APIs:
+Riot Games' League of Legends API, found here: https://developer.riotgames.com/.
+Champion.gg's API, found here: http://api.champion.gg/.
 
 
 ## Contributors
