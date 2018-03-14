@@ -1,19 +1,10 @@
 *__pycache__*
 .ipynb_checkpoints
 keys.py
-
-*.pyc
-
-
-__pycache__/config.cpython-36.pyc
-config.py
 *.pyc
 
 
 # Elastic Beanstalk Files
-
 .elasticbeanstalk/*
-
 !.elasticbeanstalk/*.cfg.yml
-
 !.elasticbeanstalk/*.global.yml
