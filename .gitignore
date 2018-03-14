@@ -3,6 +3,7 @@
 keys.py
 *.pyc
 
+.idea/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
