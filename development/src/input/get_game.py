@@ -3,7 +3,7 @@ import requests
 import json
 import pandas as pd
 
-API_KEY = config.RIOT_KEY
+# API_KEY = config.RIOT_KEY
 
 
 # summonerName = 'Imaqtpie'
