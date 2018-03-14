@@ -1,18 +1,18 @@
-import config
+import keys
 import requests
 import json
 import pandas as pd
 
-# API_KEY = config.RIOT_KEY
+API_KEY = keys.RIOT_KEY
 
 
 # summonerName = 'Imaqtpie'
+# summonerName = 'STUNNED'
 
 def get_game(summonerName):
     '''Return a df with specified summoner information from ongoing game for model.'''
     # get summonerId
-    summ_response = requests.get('https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/' + \
-                    summonerName + '?api_key=' + API_KEY)
+    summ_response = requests.get('https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/' + summonerName + '?api_key=' + API_KEY)
     try:
         summ_response.raise_for_status()
     except requests.exceptions.HTTPError as e:
@@ -23,8 +23,7 @@ def get_game(summonerName):
     summonerId = summ_data['id']
 
     # current match data
-    match_response = requests.get('https://na1.api.riotgames.com/lol/spectator/v3/active-games/by-summoner/' + \
-                                  str(summonerId) + '?api_key=' + API_KEY)
+    match_response = requests.get('https://na1.api.riotgames.com/lol/spectator/v3/active-games/by-summoner/' + str(summonerId) + '?api_key=' + API_KEY)
     try:
         match_response.raise_for_status()
     except requests.exceptions.HTTPError as e:
@@ -58,5 +57,5 @@ def get_game(summonerName):
                     'team2_champ5']
     df = pd.DataFrame(columns=champ_names, data=[team1_champs+team2_champs])
 
-    return df
+    return df, team1_players, team2_players
 

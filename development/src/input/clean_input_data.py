@@ -21,13 +21,14 @@ def clean_input_data(input_df, champs_path):
         dataframe.drop(to_drop, axis=1, inplace=True)
 
     # import data
-    scaler = joblib.load('scaler.pkl')
+    scaler = joblib.load('./development/models/scaler.pkl')
     champs = pd.read_csv(champs_path)
 
     # get needed references for stats collection
     champ_names = list(input_df)
     var_name = champs.columns[1:13]
     var_num = range(1, 13)
+    df = input_df
 
     # cumulative stats for each team
     for j in range(0, len(var_name)):

@@ -8,20 +8,31 @@ from development.src.input.get_game import get_game
 # home page
 @application.route('/')
 def index():
-    return render_template("index.html")
+
+	return render_template("index.html")
 
 
 # results page
-# @application.route('/results')
-@application.route('/results', methods=['GET','POST'])
+@application.route('/results', methods=['GET', 'POST'])
 def results():
-    # user_input = request.form['summonerName']
-    # teams = get_game(user_input)
-    # result = predict_response(teams)
+	user_input = request.form['summName']
+	df, team_1, team_2 = get_game(user_input)
+	result, prob = predict_response(df)
 
-    return render_template("results.html")
-    # return render_template("results.html", result=result, teams=teams)
+	if result == 1:
+		team_win = team_1
+		team_lose = team_2
+		prob_win = prob[0][0] * 100
+		prob_lose = prob[0][1] * 100
+
+	else:
+		team_win = team_2
+		team_lose = team_1
+		prob_win = prob[0][1] * 100
+		prob_lose = prob[0][0] * 100
+
+	return render_template("results.html", team_win =team_win, team_lose=team_lose, prob_win=prob_win, prob_lose=prob_lose)
 
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0', debug=True)
+	application.run(host='0.0.0.0', debug=True)
