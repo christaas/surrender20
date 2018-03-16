@@ -1,8 +1,10 @@
-import keys
-import time
-import requests
 import csv
+import time
+
 import pandas as pd
+import requests
+
+from development.src import keys
 
 API_KEY = keys.RIOT_KEY
 
@@ -59,6 +61,3 @@ with open('game_info.csv', 'w') as csvfile:
                 'team2_champ3': value[8], 
                 'team2_champ4': value[9], 
                 'team2_champ5': value[10]})
-
-# pprint(df)
-# pprint(df.keys())
