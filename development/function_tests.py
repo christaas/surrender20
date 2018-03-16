@@ -1,8 +1,13 @@
-import pytest
 import os
 import pandas as pd
 import sklearn
 import numpy
+# uncomment lines below for sphinx
+# import sys
+# sys.path.append('src')
+# from features.clean_training_data import clean_training_data
+# from input.clean_input_data import clean_input_data
+# from models.predict_response import predict_response
 from development.src.features.clean_training_data import clean_training_data
 from development.src.input.clean_input_data import clean_input_data
 from development.src.models.predict_response import predict_response

@@ -4,14 +4,11 @@ from sklearn.externals import joblib
 
 
 def clean_input_data(input_df, champs_path):
-    """
-    This function creates a cleaned DataFrame from json file training data
+    """Return a cleaned DataFrame of team statistics from a specified ongoing game.
 
-    Args:
-        input_df (df): user input df that needs to be cleaned for the model
-        champs_path (str): path to Champion.gg champion training data file
-    Returns:
-        df: cleaned user input
+    :param input_df: user input df that needs to be cleaned for the model
+    :param champs_path: path to Champion.gg champion training data file
+    :return: cleaned user input
     """
 
     def drop_y(dataframe):
@@ -20,7 +17,7 @@ def clean_input_data(input_df, champs_path):
         dataframe.drop(to_drop, axis=1, inplace=True)
 
     # import data
-    scaler = joblib.load(os.path.dirname(os.path.dirname(os.path.dirname( __file__ ))) + '/models/scaler.pkl')
+    scaler = joblib.load(os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + '/models/scaler.pkl')
     champs = pd.read_csv(champs_path)
 
     # get needed references for stats collection
@@ -60,7 +57,6 @@ def clean_input_data(input_df, champs_path):
     df = df.drop(df.iloc[:, 0:10], axis=1)
 
     # standardize predictors
-    df = pd.DataFrame(scaler.transform(df), columns=df.columns,
-                      index=df.index)
+    df = pd.DataFrame(scaler.transform(df), columns=df.columns, index=df.index)
 
     return df

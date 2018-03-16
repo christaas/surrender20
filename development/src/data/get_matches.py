@@ -1,10 +1,10 @@
-import requests
-import json
 import csv
-import config
 import time
+
 import pandas as pd
-from pprint import pprint
+import requests
+
+import config
 
 API_KEY = config.RIOT_KEY
 

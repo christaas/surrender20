@@ -1,9 +1,8 @@
-import requests
-import json
 import csv
+
+import requests
+
 import config
-import pandas as pd
-from pprint import pprint
 
 API_KEY = config.CGG_KEY
 

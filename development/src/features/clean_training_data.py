@@ -3,15 +3,13 @@ from sklearn import preprocessing as prep
 
 
 def clean_training_data(games_path, champs_path):
-    """
-    This function creates a cleaned DataFrame from json file training data
+    """Return a cleaned DataFrame for model training.
 
-    Args:
-        games_path (str): path to Riot Games game training data file
-        champs_path (str): path to Champion.gg champion training data file
-    Returns:
-        df: Entire specified dataframe to be used for model training
+    :param games_path: path to Riot Games game training data file
+    :param champs_path: path to Champion.gg champion training data file
+    :return: formatted training DataFrame
     """
+
     # import data
     games = pd.read_csv(games_path)
     champs = pd.read_csv(champs_path)
