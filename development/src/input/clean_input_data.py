@@ -1,6 +1,5 @@
+import os
 import pandas as pd
-from sklearn import preprocessing as prep
-from sklearn.preprocessing import StandardScaler
 from sklearn.externals import joblib
 
 
@@ -21,7 +20,7 @@ def clean_input_data(input_df, champs_path):
         dataframe.drop(to_drop, axis=1, inplace=True)
 
     # import data
-    scaler = joblib.load('./development/models/scaler.pkl')
+    scaler = joblib.load(os.path.dirname(os.path.dirname(os.path.dirname( __file__ ))) + '/models/scaler.pkl')
     champs = pd.read_csv(champs_path)
 
     # get needed references for stats collection

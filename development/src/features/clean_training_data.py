@@ -1,7 +1,5 @@
 import pandas as pd
-import csv
 from sklearn import preprocessing as prep
-import numpy as np
 
 
 def clean_training_data(games_path, champs_path):

@@ -1,7 +1,6 @@
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
 from sklearn.externals import joblib
-import pandas
 
 
 def train_model(training_df, scaler):

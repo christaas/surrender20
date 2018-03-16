@@ -1,12 +1,10 @@
-import config
+import keys
 import time
 import requests
-import json
 import csv
 import pandas as pd
-from pprint import pprint
 
-API_KEY = config.RIOT_KEY
+API_KEY = keys.RIOT_KEY
 
 df = {}
 teamIds = ['100', '200']
