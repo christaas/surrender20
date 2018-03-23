@@ -47,14 +47,10 @@ A predicted win rate for a current match with an accuracy of above 50% (training
 	`python application.py`
 
 ## Using surrender20
-For more information on how the functions used and how this application works, see the documentation in 
-
-`development/docs/_build/html/index.html`.
+For more information on how the functions used and how this application works, see the documentation in `development/docs/_build/html/index.html`.
 
 ## Running Unit Tests
-Unit tests are located in  `development/function_tests.py`. To execute the tests, navigate to `development` in Terminal and run them with the following code:
-
-`pytest function_tests.py`
+Unit tests are located in  `development/function_tests.py`. To execute the tests, navigate to `development` in Terminal and run them with `pytest function_tests.py`
 
 ## API Reference
 
