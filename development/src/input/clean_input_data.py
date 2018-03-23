@@ -1,6 +1,9 @@
 import os
 import pandas as pd
 from sklearn.externals import joblib
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 def clean_input_data(input_df, champs_path):
@@ -10,6 +13,7 @@ def clean_input_data(input_df, champs_path):
     :param champs_path: path to Champion.gg champion training data file
     :return: cleaned user input
     """
+	logger = logging.getLogger(__name__)
 
     def drop_y(dataframe):
         # list comprehension of the columns that end with '_drop'
@@ -17,17 +21,24 @@ def clean_input_data(input_df, champs_path):
         dataframe.drop(to_drop, axis=1, inplace=True)
 
     # import data
-    scaler = joblib.load(os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + '/models/scaler.pkl')
+    logging.info('Loading data.')
+    scaler_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + '/models/scaler.pkl'
+    logging.debug('Loading scaler from %s.', scaler_path)
+    scaler = joblib.load(scaler_path)
+    logging.debug('Loading champion data from %s.', champs_path)
     champs = pd.read_csv(champs_path)
 
     # get needed references for stats collection
+    logging.info('Defining predictor and response columns.')
     champ_names = list(input_df)
     var_name = champs.columns[1:13]
     var_num = range(1, 13)
     df = input_df
 
     # cumulative stats for each team
+    logging.info('Getting cumulative stats for each team.')
     for j in range(0, len(var_name)):
+        logging.debug('Aggregating stats for %s.', var_name[j])
 
         # merge games df with champion df for each stat
         for i in range(0, 10):
@@ -57,6 +68,7 @@ def clean_input_data(input_df, champs_path):
     df = df.drop(df.iloc[:, 0:10], axis=1)
 
     # standardize predictors
+    logging.debug('Standardizing predictors.')
     df = pd.DataFrame(scaler.transform(df), columns=df.columns, index=df.index)
 
     return df

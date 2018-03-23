@@ -4,6 +4,8 @@ keys.py
 *.pyc
 
 .idea/
+*.cache*
+.gitkeep
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

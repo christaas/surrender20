@@ -38,15 +38,19 @@ A predicted win rate for a current match with an accuracy of above 50% (training
 
 	`python train_model.py`
 
-6. Navigate to surrender20/ and create a config.py file.
+6. Navigate to surrender20/ and create a config.py file, writing the following line:
      
-    ```python
-	import os
-    ``` 
+    `import os`
     
 7. You are now ready to run the flask app.
 
 	`python application.py`
+
+## Using surrender20
+For more information on how the functions used and how this application works, see the documentation in `development/docs/_build/html/index.html`.
+
+## Running Unit Tests
+Unit tests are located in  `development/function_tests.py`. To execute the tests, navigate to `development` in Terminal and run them with `pytest function_tests.py`
 
 ## API Reference
 
@@ -58,7 +62,9 @@ Champion.gg's API, found here: http://api.champion.gg/.
 ## Contributors
 
 Developer: Christa Spieth
+
 Product Owner: Wenze Hu
+
 Quality Assurance: Michael Gao
 
 ## Pivotal Tracker
